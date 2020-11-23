@@ -1,0 +1,61 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Message {
+  id: Float!
+  text: String!
+  senderId: Float!
+  sender: User!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type User {
+  id: Float!
+  mobile: String!
+  name: String!
+  email: String!
+  password: String!
+  active: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type FieldError {
+  field: String!
+  message: String!
+}
+
+type UserResponse {
+  errors: [FieldError!]
+  token: String
+}
+
+type Query {
+  users: [User!]!
+  bye: String!
+  messages: [Message!]!
+}
+
+type Mutation {
+  login(input: LoginUserInput!): UserResponse!
+  register(input: UserInput!): UserResponse!
+  createMessage(data: MessageInput!): Message!
+}
+
+input LoginUserInput {
+  username: String!
+  password: String!
+}
+
+input UserInput {
+  mobile: String!
+  email: String!
+  password: String!
+}
+
+input MessageInput {
+  text: String!
+  senderId: Float!
+}
